@@ -11,7 +11,7 @@
                      :round="false"
                      color="primary"
           >
-            <va-icon class="fa fa-github" style="margin-right: 0.5rem" />
+            <va-icon class="fa fa-github" style="margin-right: 0.5rem;" />
             {{ $t('landing.admin.buttons.github') }}
           </va-button>
           <va-button class="admin__buttons--button"
@@ -24,16 +24,7 @@
             {{ $t('landing.admin.buttons.demo') }}
           </va-button>
           <div class="admin__buttons--button">
-            <va-button
-              class="star-button"
-              color="dark"
-              target="blank"
-              href="https://github.com/epicmaxco/vuestic-admin"
-              :round="false"
-              size="small"
-            >
-              <va-icon name="star_empty" class="mr-1" size="small" /> {{ stars }}
-            </va-button>
+            <stars-button repo="epicmaxco/vuestic-admin" />
           </div>
         </div>
         <div class="admin__content">
@@ -81,8 +72,11 @@
 
 <script lang="ts">
 import { Options, Vue } from 'vue-class-component'
+import StarsButton from './StarsButton.vue'
 
-@Options({})
+@Options({
+  components: { StarsButton },
+})
 export default class Admin extends Vue {
   stars = 0
 
