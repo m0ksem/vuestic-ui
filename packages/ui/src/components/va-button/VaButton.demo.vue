@@ -10,7 +10,7 @@
               <va-button preset="primary">Primary</va-button>
               <va-button preset="secondary">Secondary</va-button>
               <va-button preset="plain">Plain</va-button>
-              <va-button preset="plainOpacity">Plain with opacity</va-button>
+              <va-button preset="plainOpacity" icon="">Plain with opacity</va-button>
             </td>
           </tr>
 

@@ -3,7 +3,7 @@ import TestPage from './pages/TestPage.vue';
 </script>
 
 <template>
-  <VaNavbar>
+  <VaNavbar color="myCustomColor">
     <template #left>
       Vuestic UI Devtools demo
     </template>
@@ -19,6 +19,12 @@ import TestPage from './pages/TestPage.vue';
       </VaNavbarItem>
     </template>
   </VaNavbar>
+
+  <VaDateInput :aria-label="'test'" />
+
+  <VaButton :icon="''">
+
+  </VaButton>
 
   <div style="padding: 16px">
     <TestPage>
