@@ -22,7 +22,7 @@
 
 <template>
   <div v-if="doShow" class="va-open-devtools-button">
-    <img src="https://ui.vuestic.dev/favicon.ico" height="16px" />
+    <img src="https://ui.vuestic.dev/favicon.ico" height="16px" style="height: 16px; width: 16px;" />
     <div class="va-open-devtools-button__close">
       <VaIcon name="va-close" @click.stop="toggleDevtools" color="textPrimary" />
     </div>

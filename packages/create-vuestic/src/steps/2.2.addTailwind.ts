@@ -3,49 +3,27 @@ import { UserAnswers } from './../prompts';
 import { usePackageJson } from "../composables/usePackageJson"
 import { useFiles } from '../composables/useFiles';
 import { useNuxt } from '../composables/useNuxt';
+import { addVitePlugin } from '../utils/add-vite-plugin';
 
 const installInVite = async () => {
-  const { addFile, resolveCorrectExt, replaceFileContent } = await useFiles()
+  const { resolveCorrectExt, replaceFileContent } = await useFiles()
 
   const css = resolveCorrectExt('src/assets/main', ['css', 'scss', 'sass'])
 
   return Promise.all([
-    addFile('tailwind.config.mjs', `
-/** @type {import('tailwindcss').Config} */
-export default {
-  content: [
-    "./src/**/*.{vue,js,ts,jsx,tsx}",
-  ],
-  theme: {
-    extend: {},
-    screens: {
-      xs: '0px',
-      sm: '576px',
-      md: '768px',
-      lg: '992px',
-      xl: '1200px',
-    },
-  },
-  plugins: [],
-}
-`.trim()),
-    addFile('postcss.config.mjs', `
-export default {
-  plugins: {
-    tailwindcss: {},
-    autoprefixer: {},
-  },
-}
-`.trim()),
     replaceFileContent(css!, (content) =>
       content.replace("@import './base.css';", `
 @import './base.css';
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 `.trim())
-    )
+    ),
+    replaceFileContent(resolveCorrectExt('vite.config', ['ts', 'js'])!, async (content) =>
+      await addVitePlugin(content, {
+        name: 'tailwindcss',
+        from: '@tailwindcss/vite',
+        named: false,
+      })
+    ),
   ])
 }
 

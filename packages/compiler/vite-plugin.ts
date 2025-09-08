@@ -82,12 +82,12 @@ export const vuestic = (options: Options = {}): Plugin[] => {
     logger.info(formatString('Using [vuestic:css-layers] plugin, because Tailwind CSS is detected.'), {
       timestamp: true,
     })
-    plugins.push(cssLayers)
+    plugins.push(cssLayers({ tailwind: true }))
   } else if (options.cssLayers === true) {
     logger.info(formatString('Using [vuestic:css-layers] plugin.'), {
       timestamp: true,
     })
-    plugins.push(cssLayers)
+    plugins.push(cssLayers({ tailwind: false || env.hasTailwindCSS }))
   }
 
   if (Boolean(options.autoImport)) {

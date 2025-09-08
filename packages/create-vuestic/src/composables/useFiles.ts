@@ -41,7 +41,7 @@ export const useFiles = async () => {
     return rm(resolvedPath, { recursive: true, force: true })
   }
 
-  const replaceFileContent = async (path: string, content: (existingContent: string) => string) => {
+  const replaceFileContent = async (path: string, content: (existingContent: string) => string | Promise<string>) => {
     const resolvedPath = resolvePath(process.cwd(), projectName, path)
 
     if (!resolvedPath) {
@@ -50,7 +50,7 @@ export const useFiles = async () => {
 
     const existingContent = (await readFile(resolvedPath)).toString()
 
-    return writeFile(resolvedPath, content(existingContent))
+    return writeFile(resolvedPath, await content(existingContent))
   }
 
   const addToTopOfFile = async (path: string, content: string) => {

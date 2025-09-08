@@ -1,8 +1,8 @@
 import { Plugin } from 'vite'
 import MagicString from 'magic-string'
 
-const addLayer = (ms: MagicString, layer: string) => {
-  ms.prepend(`@layer vuestic.styles, vuestic.components;\n` + `@layer ${layer} {\n`)
+const addLayer = (ms: MagicString, layer: string, tailwind: boolean) => {
+  ms.prepend(`@layer ${tailwind ? 'base, ' : ''}vuestic.styles, vuestic.components;\n` + `@layer ${layer} {\n`)
   ms.append(`\n}`)
   return {
     code: ms.toString(),
@@ -11,7 +11,7 @@ const addLayer = (ms: MagicString, layer: string) => {
 }
 
 /** Add css layers to Vuestic files */
-export const cssLayers: Plugin = {
+export const cssLayers = (options = { tailwind: false } ): Plugin => ({
   name: 'vuestic:css-layer',
 
   transform(code, id) {
@@ -19,11 +19,11 @@ export const cssLayers: Plugin = {
     if (!id.endsWith('.css')) return null
 
     if (id.includes('vuestic-ui/dist/styles/') || id.includes('vuestic-ui/packages/ui/dist/styles/')) {
-      return addLayer(new MagicString(code), 'vuestic.styles')
+      return addLayer(new MagicString(code), 'vuestic.styles', options.tailwind)
     }
 
     if (id.includes('vuestic-ui/dist/es/') || id.includes('vuestic-ui/packages/ui/dist/es/')) {
-      return addLayer(new MagicString(code), 'vuestic.components')
+      return addLayer(new MagicString(code), 'vuestic.components', options.tailwind)
     }
   }
-}
+})

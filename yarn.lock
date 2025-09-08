@@ -10658,7 +10658,7 @@ __metadata:
     eslint: "npm:^8.53.0"
     nuxt: "npm:^3.18.0"
     pathe: "npm:^1.1.2"
-    vuestic-ui: "npm:^1.9.0"
+    vuestic-ui: "npm:~1.10.0"
   languageName: unknown
   linkType: soft
 
@@ -32525,7 +32525,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"vuestic-ui@npm:^1.9.0, vuestic-ui@workspace:packages/ui":
+"vuestic-ui@npm:~1.10.0, vuestic-ui@workspace:packages/ui":
   version: 0.0.0-use.local
   resolution: "vuestic-ui@workspace:packages/ui"
   dependencies:
