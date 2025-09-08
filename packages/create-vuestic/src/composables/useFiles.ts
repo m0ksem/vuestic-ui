@@ -59,10 +59,16 @@ export const useFiles = async () => {
     })
   }
 
+  const isFileExists = (path: string) => {
+    const resolvedPath = resolve(process.cwd(), projectName, path)
+    return existsSync(resolvedPath)
+  }
+
   return {
     removeFile,
     addToTopOfFile,
     addFile,
+    isFileExists,
     replaceFileContent,
     resolveCorrectExt,
   }
