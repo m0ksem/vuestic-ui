@@ -2,6 +2,7 @@ import { versions } from './../versions';
 import { UserAnswers } from './../prompts';
 import { usePackageJson } from "../composables/usePackageJson"
 import { useFiles } from '../composables/useFiles';
+import { useNuxt } from '../composables/useNuxt';
 
 const installInVite = async () => {
   const { addFile, resolveCorrectExt, replaceFileContent } = await useFiles()
@@ -51,51 +52,29 @@ export default {
 const installInNuxt = async () => {
   const { addFile, resolveCorrectExt, replaceFileContent } = await useFiles()
 
-  const nuxtConfig = resolveCorrectExt('nuxt.config', ['ts', 'js'])
+  const { nuxtConfig, pathPrefix } = await useNuxt()
 
   return Promise.all([
-    addFile('tailwind.config.js', `
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: [
-    "./components/**/*.{js,vue,ts}",
-    "./layouts/**/*.vue",
-    "./pages/**/*.vue",
-    "./plugins/**/*.{js,ts}",
-    "./nuxt.config.{js,ts}",
-    "./app.vue",
-  ],
-  theme: {
-    extend: {},
-    screens: {
-      xs: '0px',
-      sm: '576px',
-      md: '768px',
-      lg: '992px',
-      xl: '1200px',
-    },
-  },
-  plugins: [],
-}
-`.trim()),
-    addFile('./assets/css/main.css', `
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-`.trim()
+    addFile(`${pathPrefix}assets/css/main.css`, `
+@import "tailwindcss";
+
+`.trimStart()
     ),
-    replaceFileContent(nuxtConfig!, (content) =>
-      content.replace('export default defineNuxtConfig({', `
+    replaceFileContent(nuxtConfig!, (content) => {
+      content = `import tailwindcss from "@tailwindcss/vite";\n` + content
+
+      content = content.replace('export default defineNuxtConfig({', `
 export default defineNuxtConfig({
   css: ['~/assets/css/main.css'],
-  postcss: {
-    plugins: {
-      tailwindcss: {},
-      autoprefixer: {},
-    },
+  vite: {
+    plugins: [
+      tailwindcss(),
+    ],
   },
-`.trim())
-    ),
+`)
+
+      return content.trim()
+    }),
   ])
 }
 
@@ -115,13 +94,9 @@ export const addTailwind = async (options: UserAnswers) => {
 
   await Promise.all([
     addDependencies({
-      dependencies: {
-        '@vuestic/tailwind': versions['@vuestic/tailwind'],
-      },
       devDependencies: {
         tailwindcss: versions['tailwindcss'],
-        autoprefixer: versions['autoprefixer'],
-        postcss: versions['postcss'],
+        '@tailwindcss/vite': versions['@tailwindcss/vite'],
       }
     }),
   ])

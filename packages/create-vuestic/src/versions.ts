@@ -4,7 +4,6 @@ export const versions = {
   '@vuestic/ag-grid-theme': '^1.1.4',
   '@vuestic/compiler': '^0.2.7',
   '@vuestic/tailwind': '^0.1.3',
-  'tailwindcss': '^3.3.3',
-  'postcss': '^8.4.28',
-  'autoprefixer': '^10.4.15'
+  'tailwindcss': '^4.1.0',
+  '@tailwindcss/vite': '^4.1.0'
 }
