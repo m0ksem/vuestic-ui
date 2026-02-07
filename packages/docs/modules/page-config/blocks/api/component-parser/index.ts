@@ -1,5 +1,4 @@
-import type { DefineComponent, ComponentOptions } from "vue"
-import { isArray, isObject, isFunction, camelCase } from 'lodash'
+import { DefineComponent, ComponentOptions, camelize } from "vue"
 import * as components from 'vuestic-ui'
 import { EventMeta, PropertyMeta } from "vue-component-meta"
 import { ComponentMeta } from "../types"
@@ -23,7 +22,7 @@ function getComponentOptions(component: DefineComponent): ComponentOptions {
  */
 export function getType(fn: () => any) {
   const match = fn && fn.toString().match(/^\s*function (\w+)/)
-  return match ? match[1] : ''
+  return match ? match[1]! : ''
 }
 
 /**
@@ -32,22 +31,22 @@ export function getType(fn: () => any) {
 export const getTypes = (componentProp: any): string[] => {
   const types = []
   switch (true) {
-    case isArray(componentProp):
+    case Array.isArray(componentProp):
       types.push(...componentProp)
       break
-    case isFunction(componentProp):
+    case typeof componentProp === 'function':
       types.push(componentProp)
       break
-    case isObject(componentProp):
+    case typeof componentProp === 'object' && componentProp !== null:
       if (componentProp.type) {
-        types.push(...(isArray(componentProp.type) ? componentProp.type : [componentProp.type]))
+        types.push(...(Array.isArray(componentProp.type) ? componentProp.type : [componentProp.type]))
       }
       break
     default:
       return ['any']
   }
 
-  return types.length > 0 ? types.map(getType) : ['any']
+  return types.length > 0 ? types.map((t) => getType(t)) : ['any']
 }
 
 export type PropOptionsCompiled = {
@@ -65,6 +64,10 @@ export type EventOptionsCompiled = Record<string, any> & {
 export type CompiledComponentOptions = {
   props: ComponentMeta['props'],
   events: ComponentMeta['events'],
+}
+
+function isFunction(value: any): boolean {
+  return typeof value === 'function'
 }
 
 /**
@@ -115,9 +118,9 @@ function convertComponentPropToApiDocs<T extends string>(propName: T, propOption
 
 function normalizeProps(props: any) {
   switch (true) {
-    case isArray(props):
+    case Array.isArray(props):
       return props.reduce((acc: Record<string, unknown>, prop: string) => ({ ...acc, [prop]: null }), {})
-    case isObject(props):
+    case typeof props === 'object' && props !== null:
       return props
     default:
       return {}
@@ -170,7 +173,7 @@ export function resolveEmits(options: ComponentOptions): EventMeta[] {
 
 const eventNameToCamelCase = (eventName: string) => {
   const parts = eventName.split(':')
-  return parts.map((s) => camelCase(s)).join(':')
+  return parts.map((s) => camelize(s)).join(':')
 }
 
 export function compileComponentOptions(componentOptions: ComponentOptions): CompiledComponentOptions {

@@ -27,15 +27,15 @@
     "prepack": "nuxt-module-build build"
   },
   "dependencies": {
-    "@nuxt/kit": "^3.18.0",
-    "nuxt": "^3.18.0",
+    "@nuxt/kit": "^4.3.0",
+    "nuxt": "^4.3.0",
     "pathe": "^2.0.3",
     "vuestic-ui": "~1.10.0"
   },
   "devDependencies": {
-    "@nuxt/module-builder": "^0.5.5",
-    "@nuxt/schema": "^3.18.0",
-    "@nuxt/vite-builder": "^3.18.0",
+    "@nuxt/module-builder": "^1.0.2",
+    "@nuxt/schema": "^4.3.0",
+    "@nuxt/vite-builder": "^4.3.0",
     "@nuxtjs/eslint-config-typescript": "^12.1.0",
     "eslint": "^8.53.0"
   }

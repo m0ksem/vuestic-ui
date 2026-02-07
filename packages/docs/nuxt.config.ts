@@ -101,11 +101,6 @@ export default defineNuxtConfig({
   },
 
   googleFonts: {
-    preload: true,
-    prefetch: true,
-    preconnect: true,
-    display: 'swap',
-    download: false,
     families: {
       'Source+Sans+Pro': {
         wght: [400, 600, 700],
@@ -140,6 +135,10 @@ export default defineNuxtConfig({
       autoprefixer: {},
       ...(process.env.NODE_ENV === 'production' ? { cssnano: {} } : {})
     },
+  },
+
+  build: {
+    transpile: ['lodash/kebabCase', 'lodash/camelCase'],
   },
 
   css: [

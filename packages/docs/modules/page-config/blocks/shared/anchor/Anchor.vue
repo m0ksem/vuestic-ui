@@ -12,7 +12,13 @@
 
 <script lang='ts'>
 import { defineComponent, computed, onMounted, ComponentOptions } from 'vue'
-import { kebabCase } from 'lodash'
+
+function kebabCase(str: string) {
+  return str
+    .replace(/([a-z])([A-Z])/g, '$1-$2')
+    .replace(/[\s_]+/g, '-')
+    .toLowerCase()
+}
 
 export default defineComponent({
   props: {

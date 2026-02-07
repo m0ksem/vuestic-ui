@@ -1,7 +1,5 @@
 <script setup lang="ts">
-import { DefineComponent, PropType } from 'vue';
-import merge from 'lodash/merge'
-import camelCase from 'lodash/camelCase'
+import { DefineComponent, PropType, camelize } from 'vue';
 import ApiTable from './components/ApiDocs.vue';
 import { MarkdownView } from '../shared/markdown'
 import {
@@ -53,12 +51,28 @@ const props = defineProps({
   }
 })
 
+function merge<T extends Record<string, any>>(obj1: T, obj2: Partial<T>): T {
+  const result = { ...obj1 }
+
+  for (const key in obj2) {
+    if (typeof obj2[key] === 'object' && obj2[key] !== null && !Array.isArray(obj2[key])) {
+      result[key] = merge(result[key] || {} as any, obj2[key])
+    }
+
+    if (obj2[key] !== undefined) {
+      result[key] = obj2[key]
+    }
+  }
+
+  return result
+}
+
 const withManual = computed(() => {
   return merge(props.meta, props.manual as ManualApiOptions)
 })
 
 function getDescription (type: APIDescriptionType, name: string): string {
-  const nameCamel = camelCase(name)
+  const nameCamel = camelize(name)
 
   return props.descriptionOptions?.[type]?.[nameCamel]
     ?? (commonDescription[type] as Record<string, string>)[nameCamel]
