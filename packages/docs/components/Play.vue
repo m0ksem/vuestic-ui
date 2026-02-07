@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Repl, ReplStore, ReplProps } from '@vue/repl'
+import { Repl, useStore, ReplProps } from '@vue/repl'
 import Editor from '@vue/repl/codemirror-editor'
 import '@vue/repl/style.css'
 import { PropType } from 'vue';
@@ -19,11 +19,11 @@ const props = defineProps({
   }
 })
 
+const showOutput = ref(false)
 
-const store = new ReplStore({
-  showOutput: false,
-  serializedState: props.state.replace('#', ''),
-})
+const store = useStore({
+  showOutput,
+}, props.state.replace('#', ''))
 
 const normalizeCode = (code: string) => {
   return code.replace('<style lang="scss"', '<style')

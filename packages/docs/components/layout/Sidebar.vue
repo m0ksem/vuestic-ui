@@ -79,8 +79,6 @@
 
 <script lang="ts">
 import { defineComponent, watch, ref, computed } from 'vue'
-import { useRoute } from 'vue-router'
-
 import { NavigationRoute, navigationRoutes } from '@/page-config/navigationRoutes'
 
 export const getSortedNavigationRoutes = (routes: NavigationRoute[]): NavigationRoute[] => {

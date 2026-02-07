@@ -35,10 +35,9 @@
     "stylelint": "^13.13.1",
     "stylelint-config-standard": "^22.0.0",
     "vitest": "^1.4.0",
-    "vue": "3.5.18",
-    "vue-component-meta": "^2.0.7",
-    "vue-router": "^4.1.6",
-    "vue-tsc": "^2.0.7"
+    "vue": "3.5.27",
+    "vue-component-meta": "^3.2.4",
+    "vue-tsc": "^3.2.4"
   },
   "dependencies": {
     "@docsearch/js": "^3.2.1",
@@ -46,7 +45,7 @@
     "@funken-studio/sitemap-nuxt-3": "^4.0.4",
     "@nuxtjs/google-fonts": "^3.0.1",
     "@types/acorn": "^6.0.4",
-    "@vue/repl": "^2.8.0",
+    "@vue/repl": "^4.7.1",
     "@vueform/nuxt": "^1.26.0",
     "@zadigetvoltaire/nuxt-gtm": "^0.0.13",
     "acorn": "^8.15.0",
