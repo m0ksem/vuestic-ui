@@ -82,9 +82,9 @@ onMounted(() => {
 </script>
 
 <style lang="scss">
-@import 'vuestic-ui/styles/resources';
-@import '@/assets/fonts-imports.scss';
-@import '@/assets/smart-grid.scss';
+@use 'vuestic-ui/styles/resources';
+@use '@/assets/fonts-imports.scss';
+@use '@/assets/smart-grid.scss';
 // Need to import tailwind in layout, because otherwise Vuestic component's css will has a higher priority
 // @import '~/assets/css/tailwind.css';
 

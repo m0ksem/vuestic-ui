@@ -21,7 +21,7 @@
     "vuestic-ui": "^1.10.0"
   },
   "devDependencies": {
-    "sass": "^1.89.2"
+    "sass": "^1.97.3"
   },
   "keywords": [
     "vuestic",

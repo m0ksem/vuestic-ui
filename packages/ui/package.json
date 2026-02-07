@@ -90,7 +90,7 @@
     "lodash": "^4.17.21",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "sass": "^1.89.2",
+    "sass": "^1.97.3",
     "storybook": "^7.1.0",
     "storybook-dark-mode": "^3.0.0",
     "stylelint": "^13.13.1",
