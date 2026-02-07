@@ -1,2 +1,2 @@
-@import './fonts';
-@import './smart-grid.scss';
+@forward 'fonts';
+@forward 'smart-grid.scss';

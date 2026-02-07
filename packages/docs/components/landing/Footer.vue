@@ -146,7 +146,7 @@ const sitemap = computed(() => ([
 </script>
 
 <style lang="scss" scoped>
-@import "@/assets";
+@use "@/assets" as *;
 
 .footer {
   $section-padding: 2rem 0 3.5rem;
@@ -164,32 +164,31 @@ const sitemap = computed(() => ([
   }
 
   &__inner {
-    @include row-flex();
-
     flex-direction: column;
     align-items: center;
+
+    @include row-flex();
   }
 
   &__sitemap {
+    justify-content: center;
+
     @include col();
     @include size(12);
     @include row-flex();
-
-    justify-content: center;
   }
 
   &__sitemap-item {
-    @include col();
-    @include size(3);
-
     margin-top: 3rem;
 
+    @include col();
+    @include size(3);
     @include size-sm(6);
 
     &__title {
-      @include text-font();
-
       font-weight: 600;
+
+      @include text-font();
     }
 
     &__list {
@@ -199,10 +198,10 @@ const sitemap = computed(() => ([
     }
 
     &__list-item {
-      @include text-font();
-
       color: inherit;
       line-height: 1;
+
+      @include text-font();
 
       &:active,
       &:visited,
@@ -218,29 +217,27 @@ const sitemap = computed(() => ([
   }
 
   &__banner {
+    margin-top: 2.5rem;
+
     @include col();
     @include size(12);
-
-    margin-top: 2.5rem;
   }
 
   &__buttons {
-    @include col();
-    @include size(12);
-    @include row-flex();
-
     justify-content: center;
     align-items: center;
     margin-top: 1.25rem;
 
+    @include col();
+    @include size(12);
+    @include row-flex();
+
     &__button {
       --va-button-content-px: 1.5rem;
-
-      @include button-font();
-
       margin: 1rem 0.5rem 0;
       height: 3rem;
 
+      @include button-font();
       @include xs(width, 100%);
       @include xs(margin, 1rem 1rem 0);
 
@@ -255,22 +252,20 @@ const sitemap = computed(() => ([
   }
 
   &__socials {
-    @include col();
-    @include size(12);
-
     margin-top: 2.5rem;
 
+    @include col();
+    @include size(12);
     @include xs(margin-top, 2rem);
   }
 
   &__subtitle {
-    @include col();
-    @include size(12);
-    @include text-font();
-
     margin-top: 2.5rem;
     text-align: center;
 
+    @include col();
+    @include size(12);
+    @include text-font();
     @include xs(margin-top, 2rem);
   }
 }

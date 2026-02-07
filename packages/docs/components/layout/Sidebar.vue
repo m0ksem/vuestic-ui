@@ -173,8 +173,8 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-@import "vuestic-ui/src/styles/resources";
-@import "@/assets/smart-grid.scss";
+@use "vuestic-ui/src/styles/resources" as *;
+@use "@/assets/smart-grid.scss" as *;
 
 .sidebar {
   &__collapse-custom-header {

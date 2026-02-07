@@ -122,7 +122,7 @@ const doShowComponent = false; // TODO: Temporarily disabled
 </template>
 
 <style lang="scss" scoped>
-@import "vuestic-ui/styles/resources";
+@use "vuestic-ui/styles/resources" as *;
 
 .component-playground {
   background: var(--va-background-element);

@@ -52,7 +52,7 @@ const textColor = useElementTextColor('background-primary')
 </script>
 
 <style lang="scss" scoped>
-@import "@/assets";
+@use "@/assets" as *;
 
 .opensource {
   $section-padding: 5rem 0 7rem;
@@ -70,45 +70,41 @@ const textColor = useElementTextColor('background-primary')
   }
 
   &__inner {
-    @include row-flex();
-
     align-items: center;
+
+    @include row-flex();
   }
 
   &__info {
-    @include col();
-    @include size(5);
-    @include shift-left(1);
-
     display: flex;
     flex-direction: column;
     align-items: center;
 
+    @include col();
+    @include size(5);
+    @include shift-left(1);
     @include size-sm(12);
     @include shift-sm-left(0);
   }
 
   &__title {
-    @include subtitle-font();
-
     width: 100%;
 
+    @include subtitle-font();
     @include sm(text-align, center);
   }
 
   &__text {
-    @include text-font();
-
     margin-top: 1.5rem;
     max-width: 35rem;
 
+    @include text-font();
     @include sm(text-align, center);
   }
 
   &__actions {
     @include col();
     @include size(6);
-
     @include sm(display, none);
 
     img {

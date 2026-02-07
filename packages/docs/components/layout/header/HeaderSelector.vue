@@ -54,7 +54,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-@import 'vuestic-ui/src/styles/resources';
+@use 'vuestic-ui/src/styles/resources' as *;
 
 .i-nav {
   display: inline-block;

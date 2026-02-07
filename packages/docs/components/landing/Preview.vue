@@ -51,7 +51,7 @@ const breakpoint = useBreakpoint()
 </script>
 
 <style lang="scss" scoped>
-@import "@/assets";
+@use "@/assets" as *;
 
 .preview {
   $section-padding: 3.5rem 0 0;
@@ -70,36 +70,36 @@ const breakpoint = useBreakpoint()
   }
 
   &__inner {
-    @include row-flex();
-
     flex-direction: column;
     align-items: center;
+
+    @include row-flex();
   }
 
   &__title {
+    text-align: center;
+
     @include col();
     @include size(12);
     @include title-font();
-
-    text-align: center;
   }
 
   &__buttons {
-    @include col();
-    @include size(12);
-    @include row-flex();
-
     margin-top: 1rem;
     justify-content: center;
     align-items: center;
 
+    @include col();
+    @include size(12);
+    @include row-flex();
+
     &--button {
       --va-button-content-px: 1.5rem;
 
-      @include button-font();
-
       margin: 1rem 0.5rem 0;
       height: 3rem;
+
+      @include button-font();
 
       @include xs(width, 100%);
       @include xs(margin, 1rem 1rem 0);
@@ -111,11 +111,10 @@ const breakpoint = useBreakpoint()
   }
 
   &__features {
-    @include col();
-    @include size(12);
-
     padding-top: 6rem;
 
+    @include col();
+    @include size(12);
     @include xs(padding-top, 4rem);
 
     img {

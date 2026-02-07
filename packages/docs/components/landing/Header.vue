@@ -160,7 +160,7 @@ defineEmits(['update:modelValue'])
 </script>
 
 <style lang="scss" scoped>
-@import "@/assets";
+@use "@/assets" as *;
 
 .header {
   width: 100%;
@@ -172,30 +172,30 @@ defineEmits(['update:modelValue'])
   }
 
   &__inner {
-    @include row-flex();
-
     position: relative;
     align-items: center;
     height: var(--header-height);
+
+    @include row-flex();
   }
 
   &__logo {
+    display: flex;
+    justify-content: space-between;
+
     @include col();
     @include size(3);
     @include size-sm(12);
-
-    display: flex;
-    justify-content: space-between;
   }
 
   &__links {
-    @include col();
-    @include size(9);
-    @include sm(display, none);
-
     display: flex;
     justify-content: flex-end;
     align-items: center;
+
+    @include col();
+    @include size(9);
+    @include sm(display, none);
 
     &--link {
       white-space: nowrap;
@@ -209,13 +209,13 @@ defineEmits(['update:modelValue'])
 }
 
 .menu-button {
-  @include sm(display, block);
-
   position: absolute;
   display: none;
   right: 1.5rem;
   top: 50%;
   transform: translateY(-50%);
+
+  @include sm(display, block);
 }
 
 .mobile-menu {
@@ -240,9 +240,9 @@ defineEmits(['update:modelValue'])
   }
 
   &__menu-button-wrapper {
-    @include wrapper();
-
     width: 100%;
+
+    @include wrapper();
   }
 
   &__menu-button-container {
@@ -281,11 +281,11 @@ defineEmits(['update:modelValue'])
   }
 
   &__link {
-    @include sm(font-size, 1.2rem);
-    @include xs(font-size, 1.2rem);
-
     font-weight: 600;
     text-align: center;
+
+    @include sm(font-size, 1.2rem);
+    @include xs(font-size, 1.2rem);
 
     span,
     a {

@@ -49,7 +49,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "vuestic-ui/styles/grid";
+@use "vuestic-ui/styles/grid" as *;
 
 .item {
   border: 1px solid var(--va-background-border);

@@ -225,8 +225,8 @@ const doShowPlaygroundButton = computed(() => {
 </script>
 
 <style lang="scss">
-@import "vuestic-ui/src/styles/resources";
-@import "@/assets";
+@use "vuestic-ui/src/styles/resources" as *;
+@use "@/assets" as *;
 
 .docs-navigation {
   background: var(--va-background-border);

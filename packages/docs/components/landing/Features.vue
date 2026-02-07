@@ -74,7 +74,7 @@ const features = [
 </script>
 
 <style lang="scss" scoped>
-@import "@/assets";
+@use "@/assets" as *;
 
 .features {
   $section-padding: 7.5rem 0;
@@ -93,9 +93,8 @@ const features = [
   }
 
   &__inner {
-    @include row-flex();
-
     flex-direction: column;
+    @include row-flex();
   }
 
   &__title {
@@ -105,32 +104,29 @@ const features = [
   }
 
   &__description {
+    max-width: 40rem;
+    margin-top: 1rem;
+
     @include col();
     @include size(12);
     @include text-font();
-
-    max-width: 40rem;
-    margin-top: 1rem;
 
     @include sm(max-width, unset);
   }
 
   &__items {
-    @include col();
-    @include size(12);
-
     margin-top: 3rem;
     display: flex;
     flex-wrap: wrap;
 
+    @include col();
+    @include size(12);
     @include xs(margin-top, 1rem);
     @include xs(flex-direction, column);
     @include xs(align-items, center);
   }
 
   &__item {
-    @include size(3);
-
     display: flex;
     flex-direction: column;
     margin-top: 2rem;
@@ -138,6 +134,7 @@ const features = [
     min-height: 10rem;
     min-width: 8rem;
 
+    @include size(3);
     @include size-sm(4);
     @include size-xs(12);
     @include xs(margin-right, 0);
@@ -151,10 +148,9 @@ const features = [
   }
 
   &__item-description {
-    @include text-font();
-
     margin-top: 0.75rem;
 
+    @include text-font();
     @include xs(max-width, 20rem);
     @include xs(text-align, center);
   }

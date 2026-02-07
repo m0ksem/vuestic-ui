@@ -126,7 +126,7 @@ const submitForm = async () => {
 </script>
 
 <style lang="scss" scoped>
-@import "@/assets";
+@use "@/assets" as *;
 
 .form {
   display: flex;
@@ -163,10 +163,9 @@ const submitForm = async () => {
 }
 
 h3 {
-  @include subtitle-font();
-
   font-size: 2.5rem !important;
 
+  @include subtitle-font();
   @include xs(font-size, 1.75rem !important);
 }
 </style>

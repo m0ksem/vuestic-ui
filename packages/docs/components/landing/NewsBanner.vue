@@ -31,7 +31,7 @@ const isCloseableAlertVisible = ref(true)
 </script>
 
 <style lang="scss" scoped>
-@import "@/assets";
+@use "@/assets" as *;
 
 .epicmax-news_banner {
   display: flex;

@@ -56,7 +56,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-@import "vuestic-ui/src/styles/resources";
+@use "vuestic-ui/src/styles/resources" as *;
 
 .color-dropdown {
   cursor: pointer;

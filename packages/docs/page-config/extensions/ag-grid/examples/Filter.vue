@@ -48,5 +48,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import '@vuestic/ag-grid-theme';
+@use "@vuestic/ag-grid-theme" as *;
 </style>

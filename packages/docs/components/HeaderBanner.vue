@@ -157,7 +157,7 @@ const hide = () => {
 </script>
 
 <style lang="scss" scoped>
-@import "@/assets";
+@use "@/assets" as *;
 
 .banner-enter-active,
 .banner-leave-active {

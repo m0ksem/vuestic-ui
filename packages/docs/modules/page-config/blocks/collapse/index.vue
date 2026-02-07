@@ -26,7 +26,7 @@ const props = defineProps({
 </template>
 
 <style lang="scss" scoped>
-@import 'vuestic-ui/styles/resources';
+@use 'vuestic-ui/styles/resources' as *;
 
 .page-config-collapse {
   & + & {

@@ -32,32 +32,30 @@ const emit = defineEmits<{
 </script>
 
 <style lang="scss" scoped>
-@import "@/assets";
+@use "@/assets" as *;
 
 :global(.request-audit-modal .va-modal__close) {
-  @include xs(color, var(--va-secondary));
-
   color: var(--va-on-primary);
+
+  @include xs(color, var(--va-secondary));
 }
 
 .request-audit-modal {
   &__content {
     padding: 40px;
+    overflow: hidden;
 
     @include xs(padding, 32px);
-
-    overflow: hidden;
   }
 
   &__image {
-    @include xs(display, none);
-
     display: flex;
     align-items: center;
     justify-content: center;
     background: #2450be;
     flex-basis: 45%;
     flex-shrink: 0;
+    @include xs(display, none);
   }
 }
 </style>

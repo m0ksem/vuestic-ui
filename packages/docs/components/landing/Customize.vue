@@ -35,7 +35,7 @@
 </template>
 
 <style lang="scss" scoped>
-@import "@/assets";
+@use "@/assets" as *;
 
 .customize {
   $section-padding: 7.5rem 0 0;
@@ -54,44 +54,42 @@
   }
 
   &__inner {
-    @include row-flex();
-
     flex-direction: column;
     align-items: center;
+
+    @include row-flex();
   }
 
   &__title {
+    text-align: center;
+
     @include col();
     @include size(12);
     @include subtitle-font();
-
-    text-align: center;
   }
 
   &__subtitle {
+    margin-top: 1rem;
+    text-align: center;
+
     @include col();
     @include size(12);
     @include text-font();
-
-    margin-top: 1rem;
-    text-align: center;
   }
 
   &__buttons {
-    @include col();
-    @include size(12);
-
     display: flex;
     justify-content: center;
     margin-top: 1.5rem;
+    @include col();
+    @include size(12);
   }
 
   &__buttons-item {
     --va-button-content-px: 1.5rem;
+    height: 3rem;
 
     @include button-font();
-
-    height: 3rem;
 
     :deep(.va-button__content) {
       font-size: inherit;
@@ -99,10 +97,10 @@
   }
 
   &__image {
+    padding-top: 3.5rem;
+
     @include col();
     @include size(12);
-
-    padding-top: 3.5rem;
 
     img {
       width: 100%;

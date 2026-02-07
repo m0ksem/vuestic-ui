@@ -31,7 +31,7 @@ const phrase = `🔥 ${developersCount} Vue.js expert${developersCount > 1 ? 's'
 </script>
 
 <style lang="scss" scoped>
-@import "@/assets";
+@use "@/assets" as *;
 
 .epicmax__banner {
   display: flex;

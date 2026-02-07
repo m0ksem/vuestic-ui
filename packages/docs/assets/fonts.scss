@@ -1,3 +1,5 @@
+@use "./smart-grid.scss" as *;
+
 // headers
 @mixin title-font() {
   font-weight: 900;

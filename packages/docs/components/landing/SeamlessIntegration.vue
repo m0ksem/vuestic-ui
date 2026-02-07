@@ -103,7 +103,7 @@
 </script>
 
 <style lang="scss" scoped>
-@import "@/assets";
+@use "@/assets" as *;
 
 .seamless {
   $section-padding: 7.5rem 0;
@@ -122,41 +122,41 @@
   }
 
   &__inner {
-    @include row-flex();
-
     flex-direction: column;
     align-items: center;
+
+    @include row-flex();
   }
 
   &__title {
+    text-align: center;
+
     @include col();
     @include size(12);
     @include subtitle-font();
-
-    text-align: center;
   }
 
   &__subtitle {
+    margin-top: 1rem;
+    text-align: center;
+
     @include col();
     @include size(12);
     @include text-font();
-
-    margin-top: 1rem;
-    text-align: center;
   }
 
   &__content {
-    @include col();
-    @include size(12);
-    @include row-flex();
-    @include text-font();
-
     margin-top: 2rem;
     max-width: 60rem;
     // background: var(--va-background-secondary);
     // color: var(--va-on-background-secondary);
     // box-shadow: 0 47px 72px -39px var(--va-background-landing-border);
     // border-radius: 1rem;
+
+    @include col();
+    @include size(12);
+    @include row-flex();
+    @include text-font();
 
     &-image {
       width: 100%;
@@ -200,18 +200,16 @@
   }
 
   &__components {
-    @include row-flex();
-
     margin-top: 2rem;
 
+    @include row-flex();
     @include sm(margin-top, 0);
 
     .component {
-      @include col();
-      @include size(3);
-
       margin: auto;
 
+      @include col();
+      @include size(3);
       @include size-sm(6);
       @include sm(margin-top, 2rem);
 

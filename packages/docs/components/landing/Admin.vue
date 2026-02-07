@@ -86,7 +86,7 @@ const items = [
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets';
+@use '@/assets' as *;
 
 .admin {
   $section-padding: 7.5rem 0 10rem;
@@ -105,46 +105,45 @@ const items = [
   }
 
   &__inner {
-    @include row-flex();
-
     flex-direction: column;
     align-items: center;
+
+    @include row-flex();
   }
 
   &__title {
+    text-align: center;
+
     @include col();
     @include size(12);
     @include subtitle-font();
-
-    text-align: center;
   }
 
   &__subtitle {
+    margin-top: 1rem;
+    text-align: center;
+
     @include col();
     @include size(12);
     @include text-font();
-
-    margin-top: 1rem;
-    text-align: center;
   }
 
   &__buttons {
-    @include col();
-    @include size(12);
-    @include row-flex();
-
     justify-content: center;
     align-items: center;
     margin-top: 1.5rem;
 
+    @include col();
+    @include size(12);
+    @include row-flex();
+
     &--button {
       --va-button-content-px: 1.5rem;
-
-      @include button-font();
 
       margin: 1rem 0.5rem 0;
       height: 3rem;
 
+      @include button-font();
       @include xs(width, 100%);
       @include xs(margin, 1rem 1rem 0);
 
@@ -161,22 +160,22 @@ const items = [
   }
 
   &__content {
+    margin-top: 4rem;
+    justify-content: center;
+
     @include col();
     @include size(12);
     @include row-flex();
-
-    margin-top: 4rem;
-    justify-content: center;
 
     @include xs(margin-top, 2.5rem);
 
     &__item {
       &--first {
-        @include col();
-        @include size(8);
-
         display: flex;
         justify-content: center;
+
+        @include col();
+        @include size(8);
 
         @include size-sm(12);
 
@@ -187,12 +186,12 @@ const items = [
       }
 
       &--second {
-        @include col();
-        @include size(3);
-
         display: flex;
         flex-direction: column;
         justify-content: center;
+
+        @include col();
+        @include size(3);
 
         @include size-sm(12);
       }
@@ -207,13 +206,12 @@ const items = [
     $color: #6c7898;
     $icon-size: 4rem;
     $icon-size-xs: 3.5rem;
-
-    @include col();
-    @include size(12);
-
     display: flex;
     align-items: center;
     margin-top: 2rem;
+
+    @include col();
+    @include size(12);
 
     @include size-sm(6);
     @include size-xs(12);

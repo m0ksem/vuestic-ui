@@ -109,7 +109,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "vuestic-ui/styles/grid";
+@use "vuestic-ui/styles/grid" as *;
 
 .row {
   min-height: 10rem;

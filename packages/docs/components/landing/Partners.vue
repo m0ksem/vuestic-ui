@@ -8,7 +8,7 @@
   </section>
 </template>
 <style lang="scss" scoped>
-@import "@/assets";
+@use "@/assets" as *;
 
 .partners {
   $section-padding: 2.5rem 0 3.5rem;

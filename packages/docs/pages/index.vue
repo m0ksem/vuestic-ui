@@ -30,8 +30,8 @@ const isMobileMenuOpen = ref(false);
 </script>
 
 <style lang="scss">
-@import "vuestic-ui/src/styles/typography/typography.scss";
-@import "@/assets/reset";
+@use "vuestic-ui/src/styles/typography/typography.scss" as *;
+@use "@/assets/reset" as *;
 
 .landing {
   font-family: var(--va-font-family);

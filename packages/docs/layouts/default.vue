@@ -117,11 +117,9 @@ useHead({
 </script>
 
 <style lang="scss">
-@import 'vuestic-ui/styles/resources';
-@import '@/assets/fonts-imports.scss';
-@import '@/assets/smart-grid.scss';
-// Need to import tailwind in layout, because otherwise Vuestic component's css will has a higher priority
-// @import '~/assets/css/tailwind.css';
+@use 'vuestic-ui/styles/resources' as *;
+@use '@/assets/fonts-imports.scss' as *;
+@use '@/assets/smart-grid.scss' as *;
 
 html {
   font-family: var(--va-font-family);

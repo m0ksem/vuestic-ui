@@ -66,7 +66,7 @@ const codeBorder = computed(() => {
 </script>
 
 <style lang="scss">
-@import "vuestic-ui/src/styles/resources";
+@use "vuestic-ui/src/styles/resources" as *;
 
 .MarkdownView {
   color: currentColor;

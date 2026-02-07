@@ -182,8 +182,8 @@ onMounted(() => {
 </script>
 
 <style lang="scss">
-@import "vuestic-ui/src/styles/resources";
-@import "@/assets/smart-grid.scss";
+@use "vuestic-ui/src/styles/resources" as *;
+@use "@/assets/smart-grid.scss" as *;
 
 .header-wrapper {
   --va-navbar-mobile-height: auto;
@@ -302,11 +302,11 @@ onMounted(() => {
   }
 
   &__link {
-    @include sm(font-size, 1.2rem);
-
     align-self: center;
     font-weight: 600;
     text-align: center;
+
+    @include sm(font-size, 1.2rem);
 
     span,
     a {
