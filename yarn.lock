@@ -10515,14 +10515,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vueform/nuxt@npm:^1.13.0":
-  version: 1.13.0
-  resolution: "@vueform/nuxt@npm:1.13.0"
+"@vueform/nuxt@npm:^1.26.0":
+  version: 1.26.0
+  resolution: "@vueform/nuxt@npm:1.26.0"
   dependencies:
     "@nuxt/kit": "npm:^3.8.1"
-    "@vueform/vueform": "npm:^1.12.7"
+    "@vueform/vueform": "npm:^1.13.8"
     pathe: "npm:^1.1.1"
-  checksum: 10/287719facdaacef6587402dbdfea13a96e814af821208a7a91a699e5979e5b90626ab0c2290d7b4789892a994d2e24c375bf8e7838cc9ebf69e607513188d8bb
+  checksum: 10/ca32d96aa8a0122dac5b85e00de89fe49a56014cb7c604951d5f8f3ecea8a84a27c77347931dde90a86044163b956c2d12e8db03162f784566d467bac75b571a
   languageName: node
   linkType: hard
 
@@ -10540,9 +10540,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vueform/vueform@npm:^1.12.7":
-  version: 1.12.7
-  resolution: "@vueform/vueform@npm:1.12.7"
+"@vueform/vueform@npm:^1.13.8":
+  version: 1.13.8
+  resolution: "@vueform/vueform@npm:1.13.8"
   dependencies:
     "@popperjs/core": "npm:^2.11.8"
     "@vueform/country-phones": "npm:^1.0.3"
@@ -10559,7 +10559,7 @@ __metadata:
     sass: "npm:^1.86.2"
     trix: "npm:^2.1.14"
     wnumb: "npm:^1.2.0"
-  checksum: 10/8880149fe4ef6c5cf646514715a31d074a542511bda5e3cc413443d1b1c8001314d865465ef0ad1043d0ddb000ca9699b1a227e5e19e86f26e72e4a1d03149d4
+  checksum: 10/6c9a1129fc365e66ee2fafeb96a7d999de21c16e7e5b92c05359b144a729fb28260a9578693d79601bc16d5629bb2074d3b53ff846d1d2823e330ed697815df4
   languageName: node
   linkType: hard
 
@@ -10578,7 +10578,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vuelidate/validators@npm:^2.0.3":
+"@vuelidate/validators@npm:^2.0.4":
   version: 2.0.4
   resolution: "@vuelidate/validators@npm:2.0.4"
   dependencies:
@@ -10685,7 +10685,7 @@ __metadata:
   dependencies:
     "@storybook/vue3-vite": "npm:^7.1.0"
     "@vitejs/plugin-vue": "npm:^5.2.4"
-    "@vueform/vueform": "npm:^1.12.7"
+    "@vueform/vueform": "npm:^1.13.8"
     storybook: "npm:^7.1.0"
     vite: "npm:^6.3.5"
     vite-plugin-dts: "npm:^4.5.4"
@@ -15220,7 +15220,7 @@ __metadata:
     "@types/estree": "npm:^1.0.8"
     "@types/marked": "npm:^4.3.0"
     "@vue/repl": "npm:^2.8.0"
-    "@vueform/nuxt": "npm:^1.13.0"
+    "@vueform/nuxt": "npm:^1.26.0"
     "@zadigetvoltaire/nuxt-gtm": "npm:^0.0.13"
     acorn: "npm:^8.15.0"
     acorn-walk: "npm:^8.3.4"
@@ -32362,7 +32362,7 @@ __metadata:
     "@vue/eslint-config-typescript": "npm:^12.0.0"
     "@vue/test-utils": "npm:^2.4.1"
     "@vuelidate/core": "npm:^2.0.3"
-    "@vuelidate/validators": "npm:^2.0.3"
+    "@vuelidate/validators": "npm:^2.0.4"
     chromatic: "npm:^6.21.0"
     eslint: "npm:^8.53.0"
     eslint-plugin-import: "npm:^2.20.2"
