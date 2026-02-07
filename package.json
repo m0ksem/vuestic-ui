@@ -4,6 +4,7 @@
   "license": "MIT",
   "repository": "https://github.com/epicmaxco/vuestic-ui",
   "devDependencies": {
+    "@types/node": "22.12.0",
     "lerna": "^8.2.3",
     "syncpack": "^9.8.6",
     "tsx": "^4.21.0",
