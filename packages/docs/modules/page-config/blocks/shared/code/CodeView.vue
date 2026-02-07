@@ -16,9 +16,9 @@
     </VaTabs>
     <div class="relative">
       <CodeHighlightWrapper
-        :code="escapeVuesticImport(contents[index])"
+        :code="escapeVuesticImport(contents[index]!)"
         :lang="$props.language"
-        class="DocsCode va-typography-block pr-12"
+        class="DocsCode pr-12"
       />
       <VaButton preset="secondary" size="small" class="absolute right-2 top-2" @click="copyCode" :color="copyButtonColor">
         Copy
@@ -53,7 +53,7 @@ export default defineComponent({
     const contents = computed(() =>
       isString.value
         ? [(props.code as string).trim()]
-        : tabs.value.map((tab) => (props.code as Record<string, string>)[tab].trim())
+        : tabs.value.map((tab) => (props.code as Record<string, string>)[tab]!.trim())
     );
 
     const index = ref(0);
@@ -97,7 +97,7 @@ export default defineComponent({
     const copyButtonColor = ref<'' | 'success' | 'danger'>()
     const copyCode = async () => {
       try {
-        await getWindow()?.navigator.clipboard.writeText(escapeVuesticImport(contents.value[index.value]))
+        await getWindow()?.navigator.clipboard.writeText(escapeVuesticImport(contents.value[index.value]!))
         copyButtonColor.value = 'success'
       } catch (e: any) {
         if (e.message === 'NotAllowedError') {

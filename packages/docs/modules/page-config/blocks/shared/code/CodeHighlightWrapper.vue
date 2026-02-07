@@ -1,7 +1,9 @@
-<script>
-import { defineComponent, h, computed } from 'vue'
+<script lang="ts">
+import { defineComponent, h, computed, ref, watchEffect, onMounted } from 'vue'
 
-import hljs from 'highlight.js'
+import { createHighlighter } from 'shiki'
+import { useAppGlobal } from 'vuestic-ui';
+import { Highlighter } from 'shiki';
 
 export default defineComponent({
   props: {
@@ -15,28 +17,29 @@ export default defineComponent({
     }
   },
 
-  setup(props, { attrs }) {
-    const languageName = computed(() => {
-      let language = props.lang
+  async setup(props, { attrs }) {
+    const shiki = await useAppGlobal('shiki-highlighter', async () => ({
+      highlighter: await createHighlighter({
+          themes: ['github-light', 'github-dark'],
+          langs: ['javascript', 'typescript', 'vue', 'css', 'html', 'markdown', 'sass', 'json', 'bash']
+        }),
+    }))
 
-      if (!hljs.getLanguage(language)) {
-        console.error(`highlight.js - language ${props.lang} not found!`)
-        language = 'markdown'
-      }
+    const languageName = computed(() => props.lang || 'javascript')
+    const html = ref('')
 
-      return language
+    const { currentPresetName, colors } = useColors()
+
+    watchEffect(async () => {
+      html.value = await shiki.value.highlighter?.codeToHtml(props.code, {
+        lang: languageName.value,
+        theme: currentPresetName.value === 'dark' ? 'github-dark' : 'github-light',
+      }) ?? ''
     })
 
-    const highlightClasses = computed(() => `${attrs.class} hljs language-${languageName.value}`)
-
-    const highlightedCode = computed(() => hljs.highlight(props.code, {
-      language: languageName.value,
-    }).value)
-
-    return () => h('pre', { class: 'hljs-container' }, [
-      h('code', {
-        class: highlightClasses.value,
-        innerHTML: highlightedCode.value,
+    return () => h('div', { class: 'shiki-container' }, [
+      h('div', {
+        innerHTML: html.value,
       }),
     ])
   }
@@ -44,10 +47,16 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-.hljs-container {
-  font-family: monospace;
-  white-space: nowrap;
+.shiki-container {
   padding: 0.75rem 1.5rem;
+
+  .shiki {
+    background: transparent !important;
+  }
+
+  code {
+    display: block !important;
+  }
 
   * {
     font-family: monospace;

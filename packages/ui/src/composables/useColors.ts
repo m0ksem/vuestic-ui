@@ -131,7 +131,7 @@ export const useColors = () => {
       }, {})
   }
 
-  const colorContrastCache = useAppGlobal('colorContrastCache', new Map<string, number>())
+  const colorContrastCache = useAppGlobal('colorContrastCache', () => new Map<string, number>())
 
   const getColorLightnessFromCache = (color: ColorInput) => {
     if (typeof color !== 'string') {

@@ -6,7 +6,7 @@ export const useTrapFocus = () => {
   const document = useDocument()
   const window = useWindow()
 
-  const trapInEl = useAppGlobal<null | HTMLElement>('trapInEl', null)
+  const trapInEl = useAppGlobal<null | HTMLElement>('trapInEl', () => null)
 
   let focusableElements: HTMLElement[] = []
   let firstFocusableElement: HTMLElement | null = null

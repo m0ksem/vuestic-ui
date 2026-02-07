@@ -22,17 +22,31 @@ const getGlobalObject = () => {
  * in window context. This is useful to avoid global variables in window context in multiple app mode, ssr
  * or cjs build can mess up global variables
  */
-export const useAppGlobal = <T>(key: string, defaultValue: T): WritableComputedRef<T> => {
+export const useAppGlobal = <T>(key: string, defaultValue: () => T): typeof defaultValue extends () => Promise<infer U> ? Promise<WritableComputedRef<U>> : WritableComputedRef<T> => {
   const globalObject = getGlobalObject()
 
-  if (!(key in globalObject)) {
-    globalObject[key] = defaultValue
-  }
-
-  return computed({
+  const accessPoint = computed({
     get: () => globalObject[key],
     set: (value: T) => {
       globalObject[key] = value
     },
   })
+
+  if (!(key in globalObject)) {
+    const result = defaultValue()
+
+    // If promise
+    if (result && typeof result === 'object' && 'then' in result && typeof result.then === 'function') {
+      return new Promise((resolve) => {
+        (result as unknown as Promise<T>).then((resolvedValue: T) => {
+          globalObject[key] = resolvedValue
+          resolve(accessPoint)
+        })
+      }) as any
+    } else {
+      globalObject[key] = result
+    }
+  }
+
+  return accessPoint as any
 }

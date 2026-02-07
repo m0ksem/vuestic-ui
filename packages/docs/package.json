@@ -49,7 +49,6 @@
     "@zadigetvoltaire/nuxt-gtm": "^0.0.13",
     "acorn": "^8.15.0",
     "codesandbox": "^2.2.3",
-    "highlight.js": "^11.7.0",
     "marked": "^4.3.0"
   }
 }

@@ -7,7 +7,7 @@ import { useAppGlobal, useComponentUuid } from './'
 export const useZIndex = (isVisible: Ref<boolean>) => {
   const instance = useComponentUuid()
 
-  const zIndexStack = useAppGlobal('zIndexStack', [] as string[])
+  const zIndexStack = useAppGlobal('zIndexStack', () => [] as string[])
 
   const register = () => {
     if (zIndexStack.value.includes(instance)) {

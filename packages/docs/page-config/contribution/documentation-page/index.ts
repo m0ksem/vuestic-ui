@@ -78,7 +78,7 @@ export default definePageConfig({
       "`subtitle` - \"API\"",
       "`api` - component api or `table` for manual api",
       "`subtitle` - \"FAQ\"",
-      "`headline` - List of questions covered by `paragraph` with the answer", 
+      "`headline` - List of questions covered by `paragraph` with the answer",
     ]),
 
     block.paragraph("Pages in Services, Getting Started, e.g. don't actually have a structure, but here are general rules"),
@@ -145,7 +145,7 @@ export default definePageConfig({
 
     block.example("Code", {
       title: "Code",
-      description: "For the code previews we use [highlight.js](https://highlightjs.org/)[[target=_blank]].",
+      description: "For the code previews we use [shiki.js](https://shiki.style/)[[target=_blank]].",
       customCode: {
         source: `block.code('
   <div>Code string</div>
