@@ -19,7 +19,7 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^6.0.0",
-    "tsup": "^8.5.0",
+    "tsup": "^8.5.1",
     "vite": "^5.4.19"
   },
   "peerDependencies": {
