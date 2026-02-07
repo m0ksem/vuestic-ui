@@ -80,9 +80,7 @@ export const useRouterLink = (props: ExtractPropTypes<typeof useRouterLinkProps>
       return props.to
     }
 
-    // to resolve href on server for SEO optimization
-    // https://github.com/nuxt/nuxt.js/issues/8204
-    return props.to ? vueRouter.value?.resolve(props.to, vueRoute.value).href : undefined
+    return undefined
   })
 
   return {
