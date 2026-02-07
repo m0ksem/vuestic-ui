@@ -52,7 +52,6 @@
     "acorn": "^8.15.0",
     "codesandbox": "^2.2.3",
     "highlight.js": "^11.7.0",
-    "marked": "^4.3.0",
-    "vue-gtag": "^2.0.1"
+    "marked": "^4.3.0"
   }
 }
