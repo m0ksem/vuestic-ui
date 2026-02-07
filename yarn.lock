@@ -19,40 +19,40 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ag-grid-community/client-side-row-model@npm:^32.2.2":
-  version: 32.2.2
-  resolution: "@ag-grid-community/client-side-row-model@npm:32.2.2"
+"@ag-grid-community/client-side-row-model@npm:^32.3.9":
+  version: 32.3.9
+  resolution: "@ag-grid-community/client-side-row-model@npm:32.3.9"
   dependencies:
-    "@ag-grid-community/core": "npm:32.2.2"
+    "@ag-grid-community/core": "npm:32.3.9"
     tslib: "npm:^2.3.0"
-  checksum: 10/0794d21adf1231cf10b623f7886f0fdb1288e03774dd173a194abcae11978a19d3f4bdd832a82a96b56a167cd6ec6cd8ed4de01bc12266ba2f894fa734f1777f
+  checksum: 10/852e7a1399e51914f98363000541c80fac7df479088b7d662bab59c314dd02c2ff94c1a5ecee12c6d34ddd3ec5d2b826f90e76feae2419b1bf998b7074e62118
   languageName: node
   linkType: hard
 
-"@ag-grid-community/core@npm:32.2.2, @ag-grid-community/core@npm:^32.2.2":
-  version: 32.2.2
-  resolution: "@ag-grid-community/core@npm:32.2.2"
+"@ag-grid-community/core@npm:32.3.9, @ag-grid-community/core@npm:^32.3.9":
+  version: 32.3.9
+  resolution: "@ag-grid-community/core@npm:32.3.9"
   dependencies:
-    ag-charts-types: "npm:10.2.0"
+    ag-charts-types: "npm:10.3.9"
     tslib: "npm:^2.3.0"
-  checksum: 10/223ddd5256c74caf9d2ea665312c4931672b6b54f641fb9b9d04663e19d8389ac46b411bc61d37e1f5e2fc7fa0dace294cb4db7baa5603d96c0d1976ca2dcd73
+  checksum: 10/37f6a2cffa4c688ee355627dde37862542c0d1c10810c3365932e6ffa898ab63ae1071f5d01b91b0676416e5b32459a7d657d745c2be36750000977e868dc35d
   languageName: node
   linkType: hard
 
-"@ag-grid-community/styles@npm:^32.2.2":
-  version: 32.2.2
-  resolution: "@ag-grid-community/styles@npm:32.2.2"
-  checksum: 10/0852b1a2a3c8374e2a9926dc47a8793bb25691fd8bdad830ac8f63b22f96e78dc82cd6fefe5c048d31507ae141ff33b7e504e22352931834ea8ae2af592f8700
+"@ag-grid-community/styles@npm:^32.3.9":
+  version: 32.3.9
+  resolution: "@ag-grid-community/styles@npm:32.3.9"
+  checksum: 10/b7daea94cdc402bfeef94f59a54b921c474d954771e0d40993f588ed0ad577f00df2650194c943592b8675b5e18e4b50eb2411f8a8096ecec0b6e8faf23d441c
   languageName: node
   linkType: hard
 
-"@ag-grid-community/vue3@npm:^32.2.2":
-  version: 32.2.2
-  resolution: "@ag-grid-community/vue3@npm:32.2.2"
+"@ag-grid-community/vue3@npm:^32.3.9":
+  version: 32.3.9
+  resolution: "@ag-grid-community/vue3@npm:32.3.9"
   dependencies:
-    "@ag-grid-community/core": "npm:32.2.2"
+    "@ag-grid-community/core": "npm:32.3.9"
     vue: "npm:^3.0.0"
-  checksum: 10/4aa9b028901f899f2908c842f0446fc2bbe7e32e384092c2d9ca2e6da68b4b79395a5f6cbe94508bbe0ae15df1283219ce815f5b5a9c2c29566834212211afd0
+  checksum: 10/b2051f391ee7d9892b2b64511eff26b3fb9c9a8e71e18fb304d65d4ae0b9272ed1f1097bc5fd409f7f7a6ee00e3864991431c831e746cead2df03f028b1bf8d5
   languageName: node
   linkType: hard
 
@@ -10579,10 +10579,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@vuestic/ag-grid-theme@workspace:packages/ag-grid-theme"
   dependencies:
-    "@ag-grid-community/client-side-row-model": "npm:^32.2.2"
-    "@ag-grid-community/core": "npm:^32.2.2"
-    "@ag-grid-community/styles": "npm:^32.2.2"
-    "@ag-grid-community/vue3": "npm:^32.2.2"
+    "@ag-grid-community/client-side-row-model": "npm:^32.3.9"
+    "@ag-grid-community/core": "npm:^32.3.9"
+    "@ag-grid-community/styles": "npm:^32.3.9"
+    "@ag-grid-community/vue3": "npm:^32.3.9"
     rollup: "npm:^3.15.0"
     rollup-plugin-scss: "npm:^4.0.0"
     sass: "npm:^1.89.2"
@@ -11306,10 +11306,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ag-charts-types@npm:10.2.0":
-  version: 10.2.0
-  resolution: "ag-charts-types@npm:10.2.0"
-  checksum: 10/f6aee22c0d99606535131e3ffcafb30c4f60ee219fd014993ad5d1898aaa0db49a1d608fa725601acfd92eb9a0880e6a7a236113552498f0e51a97554687561f
+"ag-charts-types@npm:10.3.9":
+  version: 10.3.9
+  resolution: "ag-charts-types@npm:10.3.9"
+  checksum: 10/321c017950c09bfb18af2ecd0f65a5890c8984f81175f0d802879df4c158c0c7c308d653f3adf2a55713cc5faaadfa0f462baea30a8ff3ae96443c4bca0b6e84
   languageName: node
   linkType: hard
 
