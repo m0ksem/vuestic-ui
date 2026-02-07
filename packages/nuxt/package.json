@@ -29,7 +29,7 @@
   "dependencies": {
     "@nuxt/kit": "^3.18.0",
     "nuxt": "^3.18.0",
-    "pathe": "^1.1.2",
+    "pathe": "^2.0.3",
     "vuestic-ui": "~1.10.0"
   },
   "devDependencies": {

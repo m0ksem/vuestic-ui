@@ -12,9 +12,9 @@
   },
   "bin": "./dist/index.js",
   "dependencies": {
-    "chalk": "^5.2.0",
-    "ora": "^6.3.1",
-    "pathe": "1.1.2",
+    "chalk": "^5.6.2",
+    "ora": "^9.3.0",
+    "pathe": "2.0.3",
     "prompts": "^2.4.2"
   },
   "devDependencies": {
