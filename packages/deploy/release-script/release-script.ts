@@ -12,7 +12,7 @@ import omit from 'lodash/omit'
 
 import semver from 'semver'
 
-import inquirer, { DistinctQuestion } from 'inquirer'
+import inquirer, { Answers, DistinctQuestion, Question } from 'inquirer'
 import chalk from 'chalk'
 import * as path from "path";
 import {spawn} from "node:child_process";
@@ -292,19 +292,19 @@ const runReleaseScript = async (releaseConfig: ReleaseConfig, dryRun: boolean) =
   }
 }
 
-const simplePrompt = async <T> (question: DistinctQuestion<T>): Promise<T> => {
-  const result = await inquirer.prompt({
-    name: 'question',
+const simplePrompt = async <T> (question: Omit<Question, 'name'>): Promise<T> => {
+  const result = await inquirer.prompt<Answers<'question'>>({
     ...question,
+    name: 'question',
   })
-  // Inquirer typing is pure pain.
-  return (result as unknown as { question: T }).question
+
+  return result.question
 }
 
 const askOtpNpmArgument = async () => {
   const opt = await simplePrompt<string>({
     message: 'Please enter OTP for NPM or leave it blank if 2FA is not enabled',
-    type: 'input'
+    type: 'input',
   })
 
   if (opt) {

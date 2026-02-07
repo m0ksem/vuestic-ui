@@ -47,9 +47,9 @@ const main = async () => {
   const labelsFrom = await getLabels(repoFrom, token)
   const labelsTo = await getLabels(repoTo, token)
 
-  const onlySource = []
-  const detailsDiffer = []
-  const onlyTarget = []
+  const onlySource: Label[] = []
+  const detailsDiffer: Label[] = []
+  const onlyTarget: Label[] = []
 
   labelsFrom.forEach(labelFrom => {
     const labelTo = labelsTo.find(labelTo => labelTo.name === labelFrom.name)
@@ -87,7 +87,7 @@ const main = async () => {
   }])
   if (newLabels.length) {
     for (const labelName of newLabels) {
-      const label = onlySource.find(l => l.name === labelName)
+      const label = onlySource.find(l => l.name === labelName)!
       const partialLabel: PartialLabel = {
         name: label.name,
         color: label.color,
@@ -108,7 +108,7 @@ const main = async () => {
   }])
   if (differentLabels.length) {
     for (const labelName of differentLabels) {
-      const label = detailsDiffer.find(l => l.name === labelName)
+      const label = detailsDiffer.find(l => l.name === labelName)!
       const partialLabel: PartialLabel = {
         name: label.name,
         color: label.color,
