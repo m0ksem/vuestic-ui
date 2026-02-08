@@ -3,7 +3,7 @@
   "compilerOptions": {
     "target": "esnext",
     "module": "esnext",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "strict": false,
     "jsx": "preserve",
     "sourceMap": true,
@@ -14,7 +14,8 @@
     "noEmit": false,
 
     "types": [
-      "vite/client", 
+      "vite/client",
+      "node"
     ]
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"]
