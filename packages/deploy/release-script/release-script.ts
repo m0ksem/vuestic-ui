@@ -12,7 +12,7 @@ import omit from 'lodash/omit'
 
 import semver from 'semver'
 
-import inquirer, { Answers, DistinctQuestion, Question } from 'inquirer'
+import inquirer, { Answers, Question } from 'inquirer'
 import chalk from 'chalk'
 import * as path from "path";
 import {spawn} from "node:child_process";
