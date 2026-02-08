@@ -12,6 +12,7 @@ import {
 } from './types';
 import commonDescription from "./common-description";
 import { Anchor } from "../shared/anchor";
+import { mergeDeep } from 'vuestic-ui'
 
 const props = defineProps({
   componentName: {
@@ -51,24 +52,8 @@ const props = defineProps({
   }
 })
 
-function merge<T extends Record<string, any>>(obj1: T, obj2: Partial<T>): T {
-  const result = { ...obj1 }
-
-  for (const key in obj2) {
-    if (typeof obj2[key] === 'object' && obj2[key] !== null && !Array.isArray(obj2[key])) {
-      result[key] = merge(result[key] || {} as any, obj2[key])
-    }
-
-    if (obj2[key] !== undefined) {
-      result[key] = obj2[key]
-    }
-  }
-
-  return result
-}
-
 const withManual = computed(() => {
-  return merge(props.meta, props.manual as ManualApiOptions)
+  return mergeDeep(props.meta, props.manual as ManualApiOptions)
 })
 
 function getDescription (type: APIDescriptionType, name: string): string {

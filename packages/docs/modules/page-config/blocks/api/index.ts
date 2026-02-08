@@ -5,7 +5,6 @@ import { VisualOptions, type ManualApiOptions, APIDescriptionOptions } from './t
 import { parseComponent } from './component-parser'
 import type * as components from 'vuestic-ui/src/services/vue-plugin/components'
 import { ExtractComponentProps } from 'vuestic-ui/src/utils/component-options';
-import { VuesticComponent } from 'vuestic-ui/src/services/component-config';
 
 const setup = (
   componentName: string,
