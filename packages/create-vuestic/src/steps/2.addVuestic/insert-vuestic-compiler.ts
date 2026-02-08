@@ -1,4 +1,4 @@
-import { insertImport } from "./insert-import";
+import { insertImport } from "../../utils/insert-import";
 
 import { usePackageJson } from '../../composables/usePackageJson';
 import { versions } from '../../versions';

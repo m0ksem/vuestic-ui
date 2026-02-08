@@ -2,13 +2,12 @@ export const insertImport = (source: string, imports: string[]) => {
   const lines = source.split('\n')
   const importString = imports.join('\n')
 
-  const lastImportIndex = lines.length - lines.reverse().findIndex(line => line.match(/import/))
+  const lastImportIndex = lines.findLastIndex(line => line.match(/^import/))
 
-  if (lastImportIndex > lines.length - 1) {
-    lines.splice(lastImportIndex, 0, importString)
-
-    return lines.join('\n')
+  if (lastImportIndex === -1) {
+    return importString + '\n' + source
   }
 
-  return importString + '\n' + source
+  const insertionIndex = lastImportIndex + 1
+  return [...lines.slice(0, insertionIndex), importString, ...lines.slice(insertionIndex)].join('\n')
 }
