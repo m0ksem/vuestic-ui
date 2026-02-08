@@ -43,7 +43,7 @@ const props = defineProps({
 const doShow = ref(false)
 const delayComputed = useNumericProp('delay') as ComputedRef<number>
 
-let timeoutId: ReturnType<typeof setTimeout>
+let timeoutId: ReturnType<typeof setTimeout> | undefined
 onMounted(() => {
   clearTimeout(timeoutId)
   setTimeout(() => {

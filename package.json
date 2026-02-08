@@ -62,7 +62,7 @@
     "@vue/reactivity": "3.5.12",
     "@vue/server-renderer": "3.5.12",
     "@vue/compiler-dom": "3.5.12",
-    "sass": "1.89.0",
+    "sass": "^1.97.3",
     "typescript": "5.9.3",
     "vue-tsc": "3.2.4"
   },

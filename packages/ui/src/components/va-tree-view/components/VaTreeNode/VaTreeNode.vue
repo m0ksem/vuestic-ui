@@ -39,7 +39,7 @@
               :color="colorComputed"
               :disabled="!!$props.node.disabled || $props.disabled"
               indeterminate
-              @update:model-value="(v) => toggleCheckbox($props.node, v)"
+              @update:model-value="toggleCheckbox($props.node, $event)"
               class="va-tree-node__checkbox"
             />
           </slot>
@@ -67,8 +67,8 @@
         :expandable="$props.expandable"
         :node="childNode"
       >
-        <template v-for="(_, name) in $slots" :key="name" v-slot:[name]="slotScope: any">
-          <slot :name="name" v-bind="slotScope" />
+        <template v-for="(_, name) in $slots" :key="name" v-slot:[name]="scope">
+          <slot :name="name as 'content' | 'icon' | 'icon-toggle' | 'checkbox'" v-bind="scope" />
         </template>
       </va-tree-node>
     </div>
@@ -92,6 +92,13 @@ const INJECTION_ERROR_MESSAGE = 'The VaTreeNode component should be used in the 
 defineOptions({
   name: 'VaTreeNode',
 })
+
+defineSlots<{
+  content: (node: TreeNode) => any,
+  icon: (node: TreeNode) => any,
+  'icon-toggle': (node: TreeNode) => any,
+  checkbox: (node: TreeNode) => any,
+}>()
 
 const props = defineProps({
   node: {
