@@ -1,5 +1,6 @@
 import { WritableComputedRef, computed, reactive } from 'vue'
 import { useAppContext } from './useAppContext'
+import { isPromise } from '../../../utils'
 
 const getGlobalObject = () => {
   const appContext = useAppContext()
@@ -32,17 +33,22 @@ export const useAppGlobal = <T>(key: string, defaultValue: () => T): typeof defa
     },
   })
 
+  if (key in globalObject && isPromise(globalObject[key])) {
+    return globalObject[key].then(() => accessPoint) as any
+  }
+
   if (!(key in globalObject)) {
     const result = defaultValue()
 
-    // If promise
-    if (result && typeof result === 'object' && 'then' in result && typeof result.then === 'function') {
-      return new Promise((resolve) => {
-        (result as unknown as Promise<T>).then((resolvedValue: T) => {
-          globalObject[key] = resolvedValue
-          resolve(accessPoint)
-        })
-      }) as any
+    if (isPromise(result)) {
+      const initPromise = (result as Promise<T>).then((resolvedValue: T) => {
+        globalObject[key] = resolvedValue
+        return accessPoint
+      })
+
+      globalObject[key] = initPromise as unknown as T
+
+      return initPromise as any
     } else {
       globalObject[key] = result
     }
