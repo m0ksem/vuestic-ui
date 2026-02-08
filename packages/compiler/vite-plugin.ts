@@ -87,7 +87,7 @@ export const vuestic = (options: Options = {}): Plugin[] => {
     logger.info(formatString('Using [vuestic:css-layers] plugin.'), {
       timestamp: true,
     })
-    plugins.push(cssLayers({ tailwind: false || env.hasTailwindCSS }))
+    plugins.push(cssLayers({ tailwind: env.hasTailwindCSS }))
   }
 
   if (Boolean(options.autoImport)) {
