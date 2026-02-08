@@ -1,8 +1,8 @@
 <script lang="ts">
-import { defineComponent, h, computed, ref, watchEffect, onMounted } from 'vue'
+import { defineComponent, h, computed, ref, watch, onMounted } from 'vue'
 
 import { createHighlighter } from 'shiki'
-import { useAppGlobal } from 'vuestic-ui';
+import { useAppGlobal, watchAsync } from 'vuestic-ui';
 import { Highlighter } from 'shiki';
 
 export default defineComponent({
@@ -30,12 +30,22 @@ export default defineComponent({
 
     const { currentPresetName, colors } = useColors()
 
-    watchEffect(async () => {
-      html.value = await shiki.value.highlighter?.codeToHtml(props.code, {
-        lang: languageName.value,
-        theme: currentPresetName.value === 'dark' ? 'github-dark' : 'github-light',
-      }) ?? ''
-    })
+    watchAsync(
+      [() => props.code, languageName, currentPresetName],
+      async (isCancelled) => {
+        const result = await shiki.value.highlighter?.codeToHtml(props.code, {
+          lang: languageName.value,
+          theme: currentPresetName.value === 'dark' ? 'github-dark' : 'github-light',
+        })
+
+        if (isCancelled()) {
+          return
+        }
+
+        html.value = result ?? ''
+      },
+      { immediate: true }
+    )
 
     return () => h('div', { class: 'shiki-container' }, [
       h('div', {
